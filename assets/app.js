@@ -5,8 +5,11 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
+import './css/plugins.css'
+import './css/nav.css'
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
+import './styles/colors.css';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';

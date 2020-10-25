@@ -20,7 +20,7 @@ class LocaliteRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Localite[] Returns an array of Localite objects
+    //  * @return localite[] Returns an array of localite objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class LocaliteRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Localite
+    public function findOneBySomeField($value): ?localite
     {
         return $this->createQueryBuilder('l')
             ->andWhere('l.exampleField = :val')

@@ -20,17 +20,17 @@ class Newsletter
     /**
      * @ORM\Column(type="blob", nullable=true)
      */
-    private $DocumentPDF;
+    private $documentPDF;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $Publication;
+    private $publication;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Titre;
+    private $titre;
 
     public function getId(): ?int
     {
@@ -39,36 +39,36 @@ class Newsletter
 
     public function getDocumentPDF()
     {
-        return $this->DocumentPDF;
+        return $this->documentPDF;
     }
 
-    public function setDocumentPDF($DocumentPDF): self
+    public function setDocumentPDF($documentPDF): self
     {
-        $this->DocumentPDF = $DocumentPDF;
+        $this->documentPDF = $documentPDF;
 
         return $this;
     }
 
     public function getPublication(): ?\DateTimeInterface
     {
-        return $this->Publication;
+        return $this->publication;
     }
 
-    public function setPublication(\DateTimeInterface $Publication): self
+    public function setPublication(\DateTimeInterface $publication): self
     {
-        $this->Publication = $Publication;
+        $this->publication = $publication;
 
         return $this;
     }
 
     public function getTitre(): ?string
     {
-        return $this->Titre;
+        return $this->titre;
     }
 
-    public function setTitre(string $Titre): self
+    public function setTitre(string $titre): self
     {
-        $this->Titre = $Titre;
+        $this->titre = $titre;
 
         return $this;
     }

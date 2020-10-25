@@ -7,6 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=UtilisateurRepository::class)
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"utilisateur"="Utilisateur", "internaute"="Internaute"})
  */
 class Utilisateur
 {
@@ -20,17 +23,17 @@ class Utilisateur
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $AdresseNum;
+    private $adresseNum;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $AdresseRue;
+    private $adresseRue;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $Banni;
+    private $banni;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -40,32 +43,50 @@ class Utilisateur
     /**
      * @ORM\Column(type="boolean")
      */
-    private $InscriptConf;
+    private $inscriptConf;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $Inscription;
+    private $inscription;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $MotDePasse;
+    private $motDePasse;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $NbEssaisInfructueux;
+    private $nbEssaisInfructueux;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $TypeUtilisateur;
+    private $typeUtilisateur;
 
     /**
-     * @ORM\OneToOne(targetEntity=Prestataire::class, mappedBy="Utilisateur", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Internaute::class, mappedBy="favori", cascade={"persist", "remove"})
      */
-    private $Prestataire;
+    private $favori;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=CodePostal::class, inversedBy="adresseCP")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $adresseCP;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Localite::class, inversedBy="adresseLocalite")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $adresseLocalite;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Commune::class, inversedBy="adresseCommune")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $adresseCommune;
 
     public function getId(): ?int
     {
@@ -74,36 +95,36 @@ class Utilisateur
 
     public function getAdresseNum(): ?string
     {
-        return $this->AdresseNum;
+        return $this->adresseNum;
     }
 
-    public function setAdresseNum(string $AdresseNum): self
+    public function setAdresseNum(string $adresseNum): self
     {
-        $this->AdresseNum = $AdresseNum;
+        $this->adresseNum = $adresseNum;
 
         return $this;
     }
 
     public function getAdresseRue(): ?string
     {
-        return $this->AdresseRue;
+        return $this->adresseRue;
     }
 
-    public function setAdresseRue(string $AdresseRue): self
+    public function setAdresseRue(string $adresseRue): self
     {
-        $this->AdresseRue = $AdresseRue;
+        $this->adresseRue = $adresseRue;
 
         return $this;
     }
 
     public function getBanni(): ?bool
     {
-        return $this->Banni;
+        return $this->banni;
     }
 
-    public function setBanni(bool $Banni): self
+    public function setBanni(bool $banni): self
     {
-        $this->Banni = $Banni;
+        $this->banni = $banni;
 
         return $this;
     }
@@ -122,60 +143,60 @@ class Utilisateur
 
     public function getInscriptConf(): ?bool
     {
-        return $this->InscriptConf;
+        return $this->inscriptConf;
     }
 
-    public function setInscriptConf(bool $InscriptConf): self
+    public function setInscriptConf(bool $inscriptConf): self
     {
-        $this->InscriptConf = $InscriptConf;
+        $this->inscriptConf = $inscriptConf;
 
         return $this;
     }
 
     public function getInscription(): ?\DateTimeInterface
     {
-        return $this->Inscription;
+        return $this->inscription;
     }
 
-    public function setInscription(\DateTimeInterface $Inscription): self
+    public function setInscription(\DateTimeInterface $inscription): self
     {
-        $this->Inscription = $Inscription;
+        $this->inscription = $inscription;
 
         return $this;
     }
 
     public function getMotDePasse(): ?string
     {
-        return $this->MotDePasse;
+        return $this->motDePasse;
     }
 
-    public function setMotDePasse(string $MotDePasse): self
+    public function setMotDePasse(string $motDePasse): self
     {
-        $this->MotDePasse = $MotDePasse;
+        $this->motDePasse = $motDePasse;
 
         return $this;
     }
 
     public function getNbEssaisInfructueux(): ?int
     {
-        return $this->NbEssaisInfructueux;
+        return $this->nbEssaisInfructueux;
     }
 
-    public function setNbEssaisInfructueux(int $NbEssaisInfructueux): self
+    public function setNbEssaisInfructueux(int $nbEssaisInfructueux): self
     {
-        $this->NbEssaisInfructueux = $NbEssaisInfructueux;
+        $this->nbEssaisInfructueux = $nbEssaisInfructueux;
 
         return $this;
     }
 
     public function getTypeUtilisateur(): ?string
     {
-        return $this->TypeUtilisateur;
+        return $this->typeUtilisateur;
     }
 
-    public function setTypeUtilisateur(string $TypeUtilisateur): self
+    public function setTypeUtilisateur(string $typeUtilisateur): self
     {
-        $this->TypeUtilisateur = $TypeUtilisateur;
+        $this->typeUtilisateur = $typeUtilisateur;
 
         return $this;
     }
@@ -194,6 +215,60 @@ class Utilisateur
         if ($Prestataire->getUtilisateur() !== $newUtilisateur) {
             $Prestataire->setUtilisateur($newUtilisateur);
         }
+
+        return $this;
+    }
+
+    public function getInternaute(): ?Internaute
+    {
+        return $this->Internaute;
+    }
+
+    public function setInternaute(?Internaute $Internaute): self
+    {
+        $this->Internaute = $Internaute;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newUtilisateur = null === $Internaute ? null : $this;
+        if ($Internaute->getUtilisateur() !== $newUtilisateur) {
+            $Internaute->setUtilisateur($newUtilisateur);
+        }
+
+        return $this;
+    }
+
+    public function getAdresseCP(): ?CodePostal
+    {
+        return $this->adresseCP;
+    }
+
+    public function setAdresseCP(?CodePostal $adresseCP): self
+    {
+        $this->adresseCP = $adresseCP;
+
+        return $this;
+    }
+
+    public function getAdresseLocalite(): ?Localite
+    {
+        return $this->adresseLocalite;
+    }
+
+    public function setAdresseLocalite(?Localite $adresseLocalite): self
+    {
+        $this->adresseLocalite = $adresseLocalite;
+
+        return $this;
+    }
+
+    public function getAdresseCommune(): ?Commune
+    {
+        return $this->adresseCommune;
+    }
+
+    public function setAdresseCommune(?Commune $adresseCommune): self
+    {
+        $this->adresseCommune = $adresseCommune;
 
         return $this;
     }

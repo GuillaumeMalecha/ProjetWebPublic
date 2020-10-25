@@ -3,7 +3,7 @@
 // Email  : adamnurdin0@gmail.com
 // Project  : corenav
 // version  : 1.1.3
-// Description  : coreNavigation is a multi purpose navigation menu for javascript library based on jquery, come with more style and easy to combination.
+// description  : coreNavigation is a multi purpose navigation menu for javascript library based on jquery, come with more style and easy to combination.
 // ============================================== //
 
 ! function(n) {

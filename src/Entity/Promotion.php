@@ -20,37 +20,47 @@ class Promotion
     /**
      * @ORM\Column(type="datetime")
      */
-    private $AffichageDe;
+    private $affichageDe;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $AffichageJusque;
+    private $affichageJusque;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $Debut;
+    private $debut;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Description;
+    private $description;
 
     /**
      * @ORM\Column(type="blob", nullable=true)
      */
-    private $DocumentPDF;
+    private $documentPDF;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $Fin;
+    private $fin;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Nom;
+    private $nom;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Prestataire::class, inversedBy="offrir")
+     */
+    private $offrir;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=CategoriesDeServices::class, inversedBy="concerner")
+     */
+    private $concerner;
 
     public function getId(): ?int
     {
@@ -59,84 +69,108 @@ class Promotion
 
     public function getAffichageDe(): ?\DateTimeInterface
     {
-        return $this->AffichageDe;
+        return $this->affichageDe;
     }
 
-    public function setAffichageDe(\DateTimeInterface $AffichageDe): self
+    public function setAffichageDe(\DateTimeInterface $affichageDe): self
     {
-        $this->AffichageDe = $AffichageDe;
+        $this->affichageDe = $affichageDe;
 
         return $this;
     }
 
     public function getAffichageJusque(): ?\DateTimeInterface
     {
-        return $this->AffichageJusque;
+        return $this->affichageJusque;
     }
 
-    public function setAffichageJusque(\DateTimeInterface $AffichageJusque): self
+    public function setAffichageJusque(\DateTimeInterface $affichageJusque): self
     {
-        $this->AffichageJusque = $AffichageJusque;
+        $this->affichageJusque = $affichageJusque;
 
         return $this;
     }
 
     public function getDebut(): ?\DateTimeInterface
     {
-        return $this->Debut;
+        return $this->debut;
     }
 
-    public function setDebut(\DateTimeInterface $Debut): self
+    public function setDebut(\DateTimeInterface $debut): self
     {
-        $this->Debut = $Debut;
+        $this->debut = $debut;
 
         return $this;
     }
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    public function setDescription(string $Description): self
+    public function setDescription(string $description): self
     {
-        $this->Description = $Description;
+        $this->description = $description;
 
         return $this;
     }
 
     public function getDocumentPDF()
     {
-        return $this->DocumentPDF;
+        return $this->documentPDF;
     }
 
-    public function setDocumentPDF($DocumentPDF): self
+    public function setDocumentPDF($documentPDF): self
     {
-        $this->DocumentPDF = $DocumentPDF;
+        $this->documentPDF = $documentPDF;
 
         return $this;
     }
 
     public function getFin(): ?\DateTimeInterface
     {
-        return $this->Fin;
+        return $this->fin;
     }
 
-    public function setFin(\DateTimeInterface $Fin): self
+    public function setFin(\DateTimeInterface $fin): self
     {
-        $this->Fin = $Fin;
+        $this->fin = $fin;
 
         return $this;
     }
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
-    public function setNom(string $Nom): self
+    public function setNom(string $nom): self
     {
-        $this->Nom = $Nom;
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getOffrir(): ?Prestataire
+    {
+        return $this->offrir;
+    }
+
+    public function setOffrir(?Prestataire $offrir): self
+    {
+        $this->offrir = $offrir;
+
+        return $this;
+    }
+
+    public function getConcerner(): ?CategoriesDeServices
+    {
+        return $this->concerner;
+    }
+
+    public function setConcerner(?CategoriesDeServices $concerner): self
+    {
+        $this->concerner = $concerner;
 
         return $this;
     }

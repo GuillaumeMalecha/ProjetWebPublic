@@ -20,7 +20,7 @@ class CommuneRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Commune[] Returns an array of Commune objects
+    //  * @return commune[] Returns an array of commune objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class CommuneRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Commune
+    public function findOneBySomeField($value): ?commune
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')

@@ -20,22 +20,32 @@ class Commentaire
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Contenu;
+    private $contenu;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $Cote;
+    private $cote;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $Encodage;
+    private $encodage;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Titre;
+    private $titre;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Internaute::class, inversedBy="rediger")
+     */
+    private $rediger;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Prestataire::class, inversedBy="concerner")
+     */
+    private $concerner;
 
     public function getId(): ?int
     {
@@ -44,48 +54,72 @@ class Commentaire
 
     public function getContenu(): ?string
     {
-        return $this->Contenu;
+        return $this->contenu;
     }
 
-    public function setContenu(string $Contenu): self
+    public function setContenu(string $contenu): self
     {
-        $this->Contenu = $Contenu;
+        $this->contenu = $contenu;
 
         return $this;
     }
 
     public function getCote(): ?int
     {
-        return $this->Cote;
+        return $this->cote;
     }
 
-    public function setCote(int $Cote): self
+    public function setCote(int $cote): self
     {
-        $this->Cote = $Cote;
+        $this->cote = $cote;
 
         return $this;
     }
 
     public function getEncodage(): ?\DateTimeInterface
     {
-        return $this->Encodage;
+        return $this->encodage;
     }
 
-    public function setEncodage(\DateTimeInterface $Encodage): self
+    public function setEncodage(\DateTimeInterface $encodage): self
     {
-        $this->Encodage = $Encodage;
+        $this->encodage = $encodage;
 
         return $this;
     }
 
     public function getTitre(): ?string
     {
-        return $this->Titre;
+        return $this->titre;
     }
 
-    public function setTitre(string $Titre): self
+    public function setTitre(string $titre): self
     {
-        $this->Titre = $Titre;
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    public function getRediger(): ?Internaute
+    {
+        return $this->rediger;
+    }
+
+    public function setRediger(?Internaute $rediger): self
+    {
+        $this->rediger = $rediger;
+
+        return $this;
+    }
+
+    public function getConcerner(): ?Prestataire
+    {
+        return $this->concerner;
+    }
+
+    public function setConcerner(?Prestataire $concerner): self
+    {
+        $this->concerner = $concerner;
 
         return $this;
     }

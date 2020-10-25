@@ -4189,10 +4189,10 @@ function annotate(fn, strictDi, name) {
  * operator, and supplies all of the arguments to the constructor function as specified by the
  * constructor annotation.
  *
- * @param {Function} Type Annotated constructor function.
+ * @param {Function} type Annotated constructor function.
  * @param {Object=} locals Optional object. If preset then any argument names are read from this
  * object first, before the `$injector` is consulted.
- * @returns {Object} new instance of `Type`.
+ * @returns {Object} new instance of `type`.
  */
 
 /**
@@ -4845,7 +4845,7 @@ function createInjector(modulesToLoad, strictDi) {
 
 
     function instantiate(Type, locals, serviceName) {
-      // Check if Type is annotated and use just the given function at n-1 as parameter
+      // Check if type is annotated and use just the given function at n-1 as parameter
       // e.g. someModule.factory('greeter', ['$window', function(renamed$window) {}]);
       var ctor = (isArray(Type) ? Type[Type.length - 1] : Type);
       var args = injectionArgs(Type, locals, serviceName);
@@ -10953,7 +10953,7 @@ function $HttpParamSerializerJQLikeProvider() {
    *     method: 'POST',
    *     data: $httpParamSerializerJQLike(myData),
    *     headers: {
-   *       'Content-Type': 'application/x-www-form-urlencoded'
+   *       'Content-type': 'application/x-www-form-urlencoded'
    *     }
    *   });
    *
@@ -11342,9 +11342,9 @@ function $HttpProvider() {
      * - `$httpProvider.defaults.headers.common` (headers that are common for all requests):
      *   - <code>Accept: application/json, text/plain, \*&#65279;/&#65279;\*</code>
      * - `$httpProvider.defaults.headers.post`: (header defaults for POST requests)
-     *   - `Content-Type: application/json`
+     *   - `Content-type: application/json`
      * - `$httpProvider.defaults.headers.put` (header defaults for PUT requests)
-     *   - `Content-Type: application/json`
+     *   - `Content-type: application/json`
      *
      * To add or overwrite these defaults, simply add or remove a property from these configuration
      * objects. To add headers for an HTTP method other than POST or PUT, simply add a new object
@@ -11371,7 +11371,7 @@ function $HttpProvider() {
      *  method: 'POST',
      *  url: 'http://example.com',
      *  headers: {
-     *    'Content-Type': undefined
+     *    'Content-type': undefined
      *  },
      *  data: { test: 'test' }
      * }
@@ -19988,7 +19988,7 @@ var originUrl = urlResolve(window.location.href);
  * @description Normalizes and parses a URL.
  * @returns {object} Returns the normalized URL as a dictionary.
  *
- *   | member name   | Description    |
+ *   | member name   | description    |
  *   |---------------|----------------|
  *   | href          | A normalized version of the provided URL if it was not an absolute URL |
  *   | protocol      | The protocol including the trailing colon                              |
@@ -21111,7 +21111,7 @@ var DATE_FORMATS_SPLIT = /((?:[^yMLdHhmsaZEwG']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+
  *    number) or various ISO 8601 datetime string formats (e.g. yyyy-MM-ddTHH:mm:ss.sssZ and its
  *    shorter versions like yyyy-MM-ddTHH:mmZ, yyyy-MM-dd or yyyyMMddTHHmmssZ). If no timezone is
  *    specified in the string input, the time is considered to be in the local timezone.
- * @param {string=} format Formatting rules (see Description). If not specified,
+ * @param {string=} format Formatting rules (see description). If not specified,
  *    `mediumDate` is used.
  * @param {string=} timezone Timezone to be used for formatting. It understands UTC/GMT and the
  *    continental US time zone abbreviations, but for general use, use a time zone offset, for
@@ -22266,12 +22266,12 @@ var htmlAnchorDirective = valueFn({
  *
  * The buggy way to write it:
  * ```html
- * <img src="http://www.gravatar.com/avatar/{{hash}}" alt="Description"/>
+ * <img src="http://www.gravatar.com/avatar/{{hash}}" alt="description"/>
  * ```
  *
  * The correct way to write it:
  * ```html
- * <img ng-src="http://www.gravatar.com/avatar/{{hash}}" alt="Description" />
+ * <img ng-src="http://www.gravatar.com/avatar/{{hash}}" alt="description" />
  * ```
  *
  * @element IMG
@@ -22292,12 +22292,12 @@ var htmlAnchorDirective = valueFn({
  *
  * The buggy way to write it:
  * ```html
- * <img srcset="http://www.gravatar.com/avatar/{{hash}} 2x" alt="Description"/>
+ * <img srcset="http://www.gravatar.com/avatar/{{hash}} 2x" alt="description"/>
  * ```
  *
  * The correct way to write it:
  * ```html
- * <img ng-srcset="http://www.gravatar.com/avatar/{{hash}} 2x" alt="Description" />
+ * <img ng-srcset="http://www.gravatar.com/avatar/{{hash}} 2x" alt="description" />
  * ```
  *
  * @element IMG
@@ -30238,7 +30238,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
  *
  * Special properties are exposed on the local scope of each template instance, including:
  *
- * | Variable  | Type            | Details                                                                     |
+ * | Variable  | type            | Details                                                                     |
  * |-----------|-----------------|-----------------------------------------------------------------------------|
  * | `$index`  | {@type number}  | iterator offset of the repeated element (0..length-1)                       |
  * | `$first`  | {@type boolean} | true if the repeated element is first in the iterator.                      |

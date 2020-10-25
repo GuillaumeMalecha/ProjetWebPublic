@@ -20,7 +20,7 @@ class Position
     /**
      * @ORM\Column(type="integer")
      */
-    private $Ordre;
+    private $ordre;
 
     public function getId(): ?int
     {
@@ -29,12 +29,12 @@ class Position
 
     public function getOrdre(): ?int
     {
-        return $this->Ordre;
+        return $this->ordre;
     }
 
-    public function setOrdre(int $Ordre): self
+    public function setOrdre(int $ordre): self
     {
-        $this->Ordre = $Ordre;
+        $this->ordre = $ordre;
 
         return $this;
     }

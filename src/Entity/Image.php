@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ImagesRepository;
+use App\Repository\ImageRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ImagesRepository::class)
+ * @ORM\Entity(repositoryClass=ImageRepository::class)
  */
-class Images
+class Image
 {
     /**
      * @ORM\Id
@@ -20,12 +20,12 @@ class Images
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Nom;
+    private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Type;
+    private $type;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -35,27 +35,27 @@ class Images
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Description;
+    private $description;
 
     /**
-     * @ORM\OneToOne(targetEntity=Internaute::class, mappedBy="Avatar", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Internaute::class, mappedBy="avatar", cascade={"persist", "remove"})
      */
-    private $Avatar;
+    private $avatar;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Prestataire::class, inversedBy="Photo")
+     * @ORM\ManyToOne(targetEntity=Prestataire::class, inversedBy="photo")
      */
-    private $Photo;
+    private $photo;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Prestataire::class, inversedBy="Logo")
+     * @ORM\ManyToOne(targetEntity=Prestataire::class, inversedBy="logo")
      */
-    private $Logo;
+    private $logo;
 
     /**
-     * @ORM\OneToOne(targetEntity=CategoriesDeServices::class, mappedBy="Photo", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=CategoriesDeServices::class, mappedBy="photo", cascade={"persist", "remove"})
      */
-    private $PhotoServ;
+    private $photoServ;
 
     public function getId(): ?int
     {
@@ -64,24 +64,24 @@ class Images
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
-    public function setNom(string $Nom): self
+    public function setNom(string $nom): self
     {
-        $this->Nom = $Nom;
+        $this->nom = $nom;
 
         return $this;
     }
 
     public function getType(): ?string
     {
-        return $this->Type;
+        return $this->type;
     }
 
-    public function setType(string $Type): self
+    public function setType(string $type): self
     {
-        $this->Type = $Type;
+        $this->type = $type;
 
         return $this;
     }
@@ -100,29 +100,29 @@ class Images
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    public function setDescription(string $Description): self
+    public function setDescription(string $description): self
     {
-        $this->Description = $Description;
+        $this->description = $description;
 
         return $this;
     }
 
     public function getAvatar(): ?Internaute
     {
-        return $this->Avatar;
+        return $this->avatar;
     }
 
-    public function setAvatar(?Internaute $Avatar): self
+    public function setAvatar(?Internaute $avatar): self
     {
-        $this->Avatar = $Avatar;
+        $this->avatar = $avatar;
 
         // set (or unset) the owning side of the relation if necessary
-        $newAvatar = null === $Avatar ? null : $this;
-        if ($Avatar->getAvatar() !== $newAvatar) {
-            $Avatar->setAvatar($newAvatar);
+        $newAvatar = null === $avatar ? null : $this;
+        if ($avatar->getAvatar() !== $newAvatar) {
+            $avatar->setAvatar($newAvatar);
         }
 
         return $this;
@@ -130,41 +130,41 @@ class Images
 
     public function getPhoto(): ?Prestataire
     {
-        return $this->Photo;
+        return $this->photo;
     }
 
-    public function setPhoto(?Prestataire $Photo): self
+    public function setPhoto(?Prestataire $photo): self
     {
-        $this->Photo = $Photo;
+        $this->photo = $photo;
 
         return $this;
     }
 
     public function getLogo(): ?Prestataire
     {
-        return $this->Logo;
+        return $this->logo;
     }
 
-    public function setLogo(?Prestataire $Logo): self
+    public function setLogo(?Prestataire $logo): self
     {
-        $this->Logo = $Logo;
+        $this->logo = $logo;
 
         return $this;
     }
 
     public function getPhotoServ(): ?CategoriesDeServices
     {
-        return $this->PhotoServ;
+        return $this->photoServ;
     }
 
-    public function setPhotoServ(?CategoriesDeServices $PhotoServ): self
+    public function setPhotoServ(?CategoriesDeServices $photoServ): self
     {
-        $this->PhotoServ = $PhotoServ;
+        $this->photoServ = $photoServ;
 
         // set (or unset) the owning side of the relation if necessary
-        $newPhoto = null === $PhotoServ ? null : $this;
-        if ($PhotoServ->getPhoto() !== $newPhoto) {
-            $PhotoServ->setPhoto($newPhoto);
+        $newPhoto = null === $photoServ ? null : $this;
+        if ($photoServ->getPhoto() !== $newPhoto) {
+            $photoServ->setPhoto($newPhoto);
         }
 
         return $this;

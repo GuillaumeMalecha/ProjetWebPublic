@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\BlocRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,12 +22,22 @@ class Bloc
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Description;
+    private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Nom;
+    private $nom;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Internaute::class, mappedBy="choix")
+     */
+    private $choix;
+
+    public function __construct()
+    {
+        $this->choix = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -34,24 +46,52 @@ class Bloc
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    public function setDescription(string $Description): self
+    public function setDescription(string $description): self
     {
-        $this->Description = $Description;
+        $this->description = $description;
 
         return $this;
     }
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
-    public function setNom(string $Nom): self
+    public function setNom(string $nom): self
     {
-        $this->Nom = $Nom;
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Internaute[]
+     */
+    public function getChoix(): Collection
+    {
+        return $this->choix;
+    }
+
+    public function addChoix(Internaute $choix): self
+    {
+        if (!$this->choix->contains($choix)) {
+            $this->choix[] = $choix;
+            $choix->addChoix($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChoix(Internaute $choix): self
+    {
+        if ($this->choix->contains($choix)) {
+            $this->choix->removeElement($choix);
+            $choix->removeChoix($this);
+        }
 
         return $this;
     }
