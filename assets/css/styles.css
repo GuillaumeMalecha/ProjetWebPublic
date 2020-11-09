@@ -4987,7 +4987,7 @@ form.search-big-form.search-shadow, form.search-form.search-shadow {
     color: #ffffff;
 }
 .modern-list .inc-fleat.inc-add:before {
-	background:url(../img/light-add.svg);
+	/*background:url(../img/light-add.svg);*/
 	content:"";
 	position: absolute;
     background-size: contain;
@@ -4997,7 +4997,7 @@ form.search-big-form.search-shadow, form.search-form.search-shadow {
     left: 4px;
 }
 .modern-list .inc-fleat.inc-call:before {
-    background: url(../img/light-call.svg);
+    /*background: url(../img/light-call.svg);*/
     content: "";
 	position: absolute;
     background-size: contain;
@@ -6018,7 +6018,7 @@ a.btn.width-170 {
     margin-bottom: 1.5rem;
 }
 .inc-fleat.inc-bed:before {
-	background:url(../img/bed.svg);
+	/*background:url(../img/bed.svg);*/
 	content:"";
     position: absolute;
 	background-size: contain;
@@ -6028,7 +6028,7 @@ a.btn.width-170 {
     left:-2px;
 }
 .inc-fleat.inc-bath:before {
-	background:url(../img/bath.svg);
+	/* background:url(../img/bath.svg); */
 	content:"";
     position: absolute;
 	background-size:contain;
@@ -6048,7 +6048,7 @@ a.btn.width-170 {
     left:-2px;
 }
 .inc-fleat.inc-area:before {
-	background:url(../img/area.svg);
+	/* background:url(../img/area.svg); */
 	content:"";
     position: absolute;
 	background-size:contain;
