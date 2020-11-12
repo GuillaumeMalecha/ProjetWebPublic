@@ -6,14 +6,14 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends AbstractController
+class PublicController extends AbstractController
 {
     /**
      * @Route("/")
      */
     public function homepage()
     {
-        return $this->render('index.html.twig');
+        return $this->render('public/index.html.twig');
     }
 
     /**
@@ -29,7 +29,7 @@ class HomeController extends AbstractController
      */
     public function contact()
     {
-        return $this->render('contact.html.twig');
+        return $this->render('public/contact.html.twig');
     }
 
     /**
@@ -37,7 +37,7 @@ class HomeController extends AbstractController
      */
     public function login()
     {
-        return $this->render('login.html.twig');
+        return $this->render('public/login.html.twig');
     }
 
     /**
@@ -45,6 +45,6 @@ class HomeController extends AbstractController
      */
     public function register()
     {
-        return $this->render('register.html.twig');
+        return $this->render('public/register.html.twig');
     }
 }

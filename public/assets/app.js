@@ -14,7 +14,7 @@ import './css/colors.css';
 import './css/slick.scss';
 import './css/slick-theme.scss';
 
-//import './js/jquery.min';
+import './js/jquery.min';
 import $ from 'jquery';
 global.$ = global.jQuery = $
 
@@ -26,7 +26,7 @@ require('bootstrap');
 import './js/rangeslider';
 import './js/select2.min';
 import './js/aos';
-//import './js/owl.carousel.min';
+import './js/owl.carousel.min';
 require('owl.carousel');
 import './js/jquery.magnific-popup.min';
 import './js/slick';
