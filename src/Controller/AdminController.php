@@ -9,16 +9,16 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminController extends AbstractController
 {
-        /**
-         * @Route("/admin")
-         */
+    /**
+     * @Route("/admin")
+     */
     public function admin()
     {
         return $this->render('admin/admin.html.twig');
     }
 
     /**
-         * @Route("/admin")
+         * @Route("/admin/prestataires")
          */
     public function prestataires()
     {
