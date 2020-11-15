@@ -17,10 +17,18 @@ class ProfileController extends AbstractController
     }
 
     /**
-     * @Route("/admin/prestataires")
+     * @Route("/profile/update")
      */
-    public function prestataires()
+    public function update()
     {
-        return $this->render('admin/prestataires.html.twig');
+        return $this->render('profile/update.html.twig');
+    }
+
+    /**
+     * @Route("/profile/stage")
+     */
+    public function stage()
+    {
+        return $this->render('profile/stage.html.twig');
     }
 }

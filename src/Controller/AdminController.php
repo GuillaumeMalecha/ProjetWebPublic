@@ -24,4 +24,12 @@ class AdminController extends AbstractController
     {
         return $this->render('admin/prestataires.html.twig');
     }
+
+    /**
+     * @Route("/admin/commentaires")
+     */
+    public function commentaires()
+    {
+        return $this->render('admin/commentaires.html.twig');
+    }
 }
