@@ -93,8 +93,8 @@
     "doctrine/sql-formatter": {
         "version": "1.1.1"
     },
-    "fzaninotto/faker": {
-        "version": "v1.9.1"
+    "fakerphp/faker": {
+        "version": "v1.11.0"
     },
     "laminas/laminas-code": {
         "version": "3.4.1"

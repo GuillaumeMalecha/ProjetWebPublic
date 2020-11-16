@@ -17,11 +17,11 @@ class PublicController extends AbstractController
     }
 
     /**
-     * @Route("/test")
+     * @Route("/about")
      */
-    public function test()
+    public function about()
     {
-        return $this->render('test.html.twig');
+        return $this->render('public/about.html.twig');
     }
 
     /**
